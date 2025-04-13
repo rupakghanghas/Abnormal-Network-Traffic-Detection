@@ -1,0 +1,27 @@
+name: testing the application
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  job1:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+        
+    - name: Check installed versions
+      run: |
+        python -c "import xgboost, numpy, sklearn; print('xgboost:', xgboost.__version__); print('numpy:', numpy.__version__); print('scikit-learn:', sklearn.__version__)"
+    - name: Run Test Cases
+      run: pytest Pytest_run_tests.py
