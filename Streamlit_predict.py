@@ -31,7 +31,7 @@ imp_features_transformed=param_dict['imp_features_transformed']
 
 # Create a form
 with st.form(key='network_anamoly'):
-    st.write("## Anomaly Based Network Intrusion Detection")
+    st.write("## Abnormal-Network-Traffic-Detection")
     st.write("### Main Features")
     # First row
     col1, col2 = st.columns(2)
